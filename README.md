@@ -4,10 +4,11 @@
 
 * [Jersey](https://eclipse-ee4j.github.io/jersey/) - JAX-RS reference implementation
 * [Weld](https://weld.cdi-spec.org/) - CDI reference implementation
-* [Hibernate](https://hibernate.org/) - ORM
+* [Hibernate](https://hibernate.org/) - ORM/JPA
 * [HikariCP](https://github.com/brettwooldridge/HikariCP) - Connection pooling
 * [SmallRye Config](https://smallrye.io/) - MicroProfile config
 * [Grizzly](https://javaee.github.io/grizzly/) - Scalable Java NIO server
+* [JSON-B](https://javaee.github.io/jsonb-spec/) - for JSON responses
 
 ### Compatibility ###
 
@@ -21,7 +22,6 @@ Tested to work on
 * [jooq](https://jooq.org)
 * Hot reloading
 * [OpenAPI/Swagger](https://swagger.io/docs/specification/about/)
-* Jackson
 * JWT
 
 ## Tomcat

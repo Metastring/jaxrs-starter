@@ -123,6 +123,11 @@
             <artifactId>postgresql</artifactId>
             <version>42.2.14</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-json-binding</artifactId>
+        </dependency>
     </dependencies>
 
     <!-- Some dependencies cannot be specified together -->
