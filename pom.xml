@@ -10,11 +10,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>JAX-RS Starter</name>
     <description>A boilerplate java project</description>
-    <packaging>war</packaging>
+    <packaging>${packaging.type}</packaging>
 
     <!-- ideal to put all configuration at the top together -->
     <!-- Can use a property later like ${property.name} -->
     <properties>
+        <packaging.type>jar</packaging.type>
         <!-- Decide the java version that the maven-compiler-plugin will use  -->
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -121,6 +122,9 @@
                 <!-- since this is required for SE, let it be run by default -->
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <packaging.type>jar</packaging.type>
+            </properties>
             <dependencies>
                 <!-- for CDI in SE -->
                 <dependency>
@@ -134,10 +138,32 @@
                     <version>2.4.8.Final</version>
                 </dependency>
             </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>java</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <mainClass>org.metastringfoundation.starters.jaxrs.Main</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
 
         <profile>
             <id>tomcat</id>
+            <properties>
+                <packaging.type>war</packaging.type>
+            </properties>
             <dependencies>
                 <!-- this is probably buggy because we're using cdi1x extension but weld 3.x -->
                 <dependency>
