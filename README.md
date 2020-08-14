@@ -22,7 +22,8 @@ Tested to work on
 * [jooq](https://jooq.org)
 * Hot reloading
 * [OpenAPI/Swagger](https://swagger.io/docs/specification/about/)
-* JWT
+* JWT - for authentication
+* [Flyway](https://flywaydb.org/) - for DB migrations
 
 ## Tomcat
 
