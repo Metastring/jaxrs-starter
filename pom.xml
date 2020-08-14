@@ -110,6 +110,19 @@
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-grizzly2-http</artifactId>
         </dependency>
+
+        <!-- hibernate for JPA. Let us use hikari connection pool -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-hikaricp</artifactId>
+            <version>5.4.20.Final</version>
+        </dependency>
+        <!-- postgres JDBC -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.14</version>
+        </dependency>
     </dependencies>
 
     <!-- Some dependencies cannot be specified together -->
