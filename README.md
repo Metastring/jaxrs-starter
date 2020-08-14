@@ -1,5 +1,29 @@
 # JAX-RS Starter
 
+## Features
+
+* [Jersey](https://eclipse-ee4j.github.io/jersey/) - JAX-RS reference implementation
+* [Weld](https://weld.cdi-spec.org/) - CDI reference implementation
+* [Hibernate](https://hibernate.org/) - ORM
+* [HikariCP](https://github.com/brettwooldridge/HikariCP) - Connection pooling
+* [SmallRye Config](https://smallrye.io/) - MicroProfile config
+* [Grizzly](https://javaee.github.io/grizzly/) - Scalable Java NIO server
+
+### Compatibility ###
+
+Tested to work on
+* Java SE 8+ - with maven
+* Tomcat 8.5
+* PostgreSQL 12
+
+### Not included (yet) ###
+* Unit and integration test
+* [jooq](https://jooq.org)
+* Hot reloading
+* [OpenAPI/Swagger](https://swagger.io/docs/specification/about/)
+* Jackson
+* JWT
+
 ## Tomcat
 
 * `mvn package -P tomcat`
