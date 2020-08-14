@@ -72,9 +72,27 @@
         </dependency>
 
         <!-- jersey requires a DI framework to run -->
+        <!-- it internally needs hk2 -->
         <dependency>
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <!-- but we're going to need proper CDI -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <version>2.0.SP1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>3.1.4.Final</version>
+        </dependency>
+        <!-- jersey cdi extension hooks up weld into jersey -->
+        <dependency>
+            <groupId>org.glassfish.jersey.ext.cdi</groupId>
+            <artifactId>jersey-cdi1x-servlet</artifactId>
         </dependency>
 
         <!-- We are not going to try to run this on ancient servlet containers -->
