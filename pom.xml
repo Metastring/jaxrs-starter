@@ -6,7 +6,85 @@
 
     <groupId>org.metastringfoundation</groupId>
     <artifactId>jaxrs-starter</artifactId>
+    <!-- use semantic versioning https://semver.org/ -->
     <version>0.0.1-SNAPSHOT</version>
+    <name>JAX-RS Starter</name>
+    <description>A boilerplate java project</description>
+    <packaging>war</packaging>
 
-    
+    <!-- ideal to put all configuration at the top together -->
+    <!-- Can use a property later like ${property.name} -->
+    <properties>
+        <!-- Decide the java version that the maven-compiler-plugin will use  -->
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Wherever possible, use latest stable version of dependencies -->
+        <jersey.version>2.31</jersey.version>
+        <junit.version>5.6.2</junit.version>
+    </properties>
+
+    <!-- build plugins need to be configured for easy building -->
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- dependency management allows upstream to provide a comprehensive version of all dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- the JAX-RS API -->
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>2.1.6</version>
+        </dependency>
+
+        <!-- Jersey runs as a servlet inside a multitude of supported containers -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+        </dependency>
+
+        <!-- jersey requires a DI framework to run -->
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+        </dependency>
+
+        <!-- We are not going to try to run this on ancient servlet containers -->
+        <!-- By specifying this dependency, we also tell maven-war-plugin to ignore missing web.xml -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
 </project>
